@@ -20,6 +20,7 @@
 ** @brief
 **         This is user's event module.
 **         Put your event handler code here.
+**         blablalbal
 */         
 /*!
 **  @addtogroup Events_module Events module documentation
