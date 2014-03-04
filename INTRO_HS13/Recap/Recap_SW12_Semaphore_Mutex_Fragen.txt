@@ -1,0 +1,53 @@
+#######################
+SW 12 Semaphore & Mutex
+#######################
+
+Fragen
+******
+
+1. Was zeichnet ein Mutex gegenüber einer normalen Semaphore aus?
+
+2. Wie viele beteiligte Prozesse und Prioritäten braucht es im Minimum damit
+   es zu Priority Inversion kommen kann?
+
+3. Gegeben sind die Semaphore S1 und S2 sowie die Prozesse PL, PM und PH. PL
+   hat die Priorität 1, PM die 2 und PH die 3 (grössere Zahlen bedeuten höhere
+   Priorität). Die Semaphore S1 wird von PL und PM verwendet. Die Semaphore S2
+   wird von PL und PH verwendet. Wie hoch ist das Priority Ceiling der
+   Semaphore S1 und S2?
+
+4. Was gilt es bei der Verwendung von FreeRTOS Semaphore aus Interrupt Service
+   Routinen zu beachten?
+
+5. In welchem Zustand ist ein Prozess der auf eine Semaphore warten muss?
+
+
+
+
+
+
+
+
+
+
+
+Antworten
+*********
+
+1. Ein Mutex ist ein Spezialfall der Semaphore der nur einem einzigen Prozess
+   den Zugriff auf eine gemeinsame Ressource erlaubt. Daher der Begriff binäre
+   Semaphore für Mutex.
+
+2. Es braucht mindestens drei Prozesse mit drei unterschiedlichen Prioritäten:
+   ein Prozess mit niedriger Priorität der die Semaphore hält, ein Prozess mit
+   mittlerer Priorität der die Ausführung des niedrigpriorisierten Prozesses
+   verhindert und ein Prozess mit hoher Priorität der auf die Semaphore
+   wartet.
+
+3. S1 hat ein Priority Ceiling von 2, S2 hat eine 3.
+
+4. Statt der Funktionen xSemaphoreTake bzw. xSemaphoreGive müssen die
+   zugehörigen FromISR-Funktionen verwendet werden: xSemaphoreTakeFromISR bzw.
+   xSemaphoreGiveFROMISR.
+
+5. Ein wartender Prozess ist im Zustand "Blocked".

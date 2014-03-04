@@ -1,0 +1,15 @@
+F: Welche Methoden für das Task controlling kennst du?
+A: uxTaskPriorityGet/Set(), vTaskSuspend/SuspendAll(), vTaskResume/ResumeAll/ResumeFromISR(), taskYIELD(),
+   taskENABLE/DISABLE_INTERRUPTS(),taskENTER/EXIT_CRITICAL(), vTaskDelay/DelayUntil()
+
+F: Welcher Task wird in priority-based preemptive Scheduling ausgeführt?
+A: Der Task mit der höchsten Priorität
+
+F: In welcher Situation macht der Aufruf von vTaskEndScheduler() sinn?
+A: Beispielsweise für Ultra-low Power Anwendungen, wenn Energie gespart werden soll
+
+F: Welche Schemas exisitieren, um Memory für Tasks zu allozieren?
+A: Schema 1: Nur allozieren, Schema 2: Blöcke können wieder freigegeben werden (Fragmentierung möglich), Schema 3: Wrapper für malloc und free, Schema 4 (neu): Freie Blöcke werden gemerget
+
+F: Wofür haben wir die Shell-Queue implementiert?
+A: Für den geregelten Zugriff von Informationen zwischen mehreren Prozessen

@@ -1,0 +1,18 @@
+F: Sind alle Mikrocontroller mit einem ARM-Cortex M0 gleich?
+A: Nein, nur der Kern ist der selbe, die Peripherie, sowie der Speicher sind unterschiedlich.
+
+F: Wie viele Stack Pointer hat der ARM Cortex M0? 
+A: 2, Main SP und Process SP
+
+F: Welcher Architektur entspricht der ARM Kern? Von Neumann oder Harvard?
+A: Harvard, der Code und SRAM sind am selben Bus
+
+F: Sind alle 16 Register frei verwendbar?
+A: Nein, nur R0 - R12, R13 => SP, R14 => LR, R15=>PC R16=>xPSR
+
+F: Wie wird ein kritischer Abschnitt im Code geschützt?
+A: EnterCritical(), ExitCritical()
+
+
+
+
