@@ -3,7 +3,7 @@
   <Header>
     <Name>ProcessorExpert</Name>
     <SavedBy>Egli Simon</SavedBy>
-    <ModificationStamp>10</ModificationStamp>
+    <ModificationStamp>11</ModificationStamp>
     <Date>2014-03-18</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.8.1.RT5_b1349-1839</PEversion>
@@ -68,7 +68,7 @@
         <ItemSymbol>ClockSettingGrp</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Expanded>false</Expanded>
+        <Expanded>true</Expanded>
       </ItemState>
       <ItemState>
         <ItemSymbol>ICLK</ItemSymbol>
@@ -120,7 +120,7 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>4</Value>
+        <Value>20</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>CLKrange</ItemSymbol>
@@ -2135,7 +2135,7 @@
       <AsmBitsFormat>HEX</AsmBitsFormat>
       <CPUDB_Settings>
         <CpuType>MC13213</CpuType>
-        <ActualClock>4</ActualClock>
+        <ActualClock>20</ActualClock>
         <ActualClockLow>243</ActualClockLow>
         <DeviceNamesDefines>
           <EmptySection_DummyValue />
