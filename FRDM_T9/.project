@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>FRDM_T9</name>
+	<comment></comment>
+	<projects>
+		<project location="file:/C:/Users/Egli%20Simon/Documents/HSLU/INTRO/Team9/IntroCommon_T9">
+IntroCommon_T9		</project>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>com.freescale.processorexpert.core.expertprojectbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.cdt.managedbuilder.core.genmakebuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.cdt.managedbuilder.core.ScannerConfigBuilder</name>
+			<triggers>full,incremental,</triggers>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.freescale.processorexpert.core.expertprojectnature</nature>
+		<nature>org.eclipse.cdt.core.cnature</nature>
+		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
+		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>IntroCommon_T9</name>
+			<type>2</type>
+			<location>C:/Users/Egli Simon/Documents/HSLU/INTRO/Team9/IntroCommon_T9</location>
+		</link>
+		<link>
+			<name>Sources/include</name>
+			<type>2</type>
+			<location>C:/Users/Egli Simon/Documents/HSLU/INTRO/Team9/IntroCommon_T9/include</location>
+		</link>
+		<link>
+			<name>Sources/src</name>
+			<type>2</type>
+			<location>C:/Users/Egli Simon/Documents/HSLU/INTRO/Team9/IntroCommon_T9/src</location>
+		</link>
+	</linkedResources>
+</projectDescription>
