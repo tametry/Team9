@@ -29,6 +29,8 @@
   /*!< Set to 1 if we have the Timer module implemented, 0 otherwise */
 #define PL_HAS_LED_HEARTBEAT  (1)
   /*!< Set to 1 if we have a LED heartbeat, 0 otherwise */
+#define PL_HAS_KEYBOARD  (1)
+  /*!< Set to 1 if we have a KEYBOARD, 0 otherwise */
 
 #if PL_IS_FRDM
   #define PL_NOF_LEDS 3

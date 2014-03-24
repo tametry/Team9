@@ -17,6 +17,9 @@
 #if PL_HAS_TIMER
   #include "Timer.h"
 #endif
+#if PL_HAS_KEYBOARD
+  #include "Keys.h"
+#endif
 
 #if PL_HAS_LED
 static void PL_LedInit(void) {
@@ -71,6 +74,9 @@ void PL_Init(void) {
 #if PL_HAS_TIMER
   TMR_Init();
 #endif
+#if PL_HAS_KEYBOARD
+  KEY_Init();
+#endif
 }
 
 void PL_Deinit(void) {
@@ -83,4 +89,7 @@ void PL_Deinit(void) {
 #if PL_HAS_TIMER
   TMR_Deinit();
 #endif
+#if PL_HAS_KEYBOARD
+  KEY_Deinit();
+#endif  
 }

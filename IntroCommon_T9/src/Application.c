@@ -12,6 +12,7 @@
 #include "Event.h"
 #include "WAIT1.h"
 #include "LED.h"
+#include "Bit1.h"
 
 static void APP_EvntHandler(EVNT_Handle event) {
   switch(event) { 
@@ -34,7 +35,9 @@ static void APP_EvntHandler(EVNT_Handle event) {
 
 static void APP_Loop(void) {
   for(;;) {
-    EVNT_HandleEvent(APP_EvntHandler);
+	  if(Bit1_GetVal()){
+		  EVNT_HandleEvent(APP_EvntHandler);
+	  }
   } /* for */
 }
 
