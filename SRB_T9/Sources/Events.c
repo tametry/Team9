@@ -74,6 +74,9 @@ void TI1_OnInterrupt(void)
 void KB1_OnInterrupt(void)
 {
   /* Write your code here ... */
+	#if PL_HAS_KEYS
+	  KEY_OnInterrupt();
+	#endif
 }
 
 /* END Events */

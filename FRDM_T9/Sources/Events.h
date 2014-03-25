@@ -49,7 +49,7 @@
 #include "TimerIntLdd1.h"
 #include "TU1.h"
 #include "HF1.h"
-#include "Bit1.h"
+#include "SW1.h"
 #include "BitIoLdd4.h"
 
 #ifdef __cplusplus

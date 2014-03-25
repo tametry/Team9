@@ -65,7 +65,14 @@ void main(void)
   /* Write your code here */
   /* For example: for(;;) { } */
   
-  for(;;) { LED1_Put(KEY1_Get()); }
+#if 0
+  LED1_On();
+  LED2_On();
+  LED3_On();
+  LED4_On();
+  LED5_On();
+#endif
+  APP_Run();
 
   /*** Don't write any code pass this line, or it will be deleted during code generation. ***/
   /*** RTOS startup code. Macro PEX_RTOS_START is defined by the RTOS component. DON'T MODIFY THIS CODE!!! ***/
