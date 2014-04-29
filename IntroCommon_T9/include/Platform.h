@@ -33,16 +33,48 @@
   /*!< Set to 1 if we have push buttons (keys) implemented, 0 otherwise */
 #define PL_HAS_KBI            (PL_IS_SRB)
   /*!< Set to 1 if we have use keyboard interrupt */
-//#define PL_HAS_TRIGGER        (1)
+#define PL_HAS_TRIGGER        (1)
   /*!< Set to 1 if we have use trigger */
-//#define PL_HAS_BUZZER         (1)
+#define PL_HAS_BUZZER         (1)
   /*!< Set to 1 if we have a buzzer */
-//#define PL_HAS_DEBOUNCE       (1)
+#define PL_HAS_DEBOUNCE       (1)
   /*!< Set to 1 if we have debounce the keys */
-//#define PL_HAS_RTOS           (1)
+#define PL_HAS_RTOS           (1)
   /*!< If we are using an RTOS */
-//#define PL_HAS_SHELL    0
-  /*!< Set to 1 if we have use a shell */
+#define PL_HAS_SEMAPHORE      (1)
+  /*!< If we are using test tasks for semaphores */
+//#define PL_HAS_SHELL          (1)
+  /*!< If we have a shell */
+//#define PL_HAS_BLUETOOTH      (1 && PL_IS_FRDM)
+  /*!< If we are using an RTOS */
+//#define PL_HAS_SHELL_QUEUE    (1)
+  /*!< If we have a message queue for the shell */
+//#define PL_HAS_LINE_SENSOR    (1 && PL_IS_FRDM)
+  /*!< If we are having a line sensor */
+//#define PL_HAS_MOTOR          (1 && PL_IS_FRDM)
+  /*!< Set to one if having DC motor driver */
+//#define PL_HAS_ACCEL          (1)
+  /*!< Set to one if having acceleration sensor */
+//#define PL_HAS_CONFIG_NVM     (1)
+  /*!< Set to one if using non-volatile memory for configuration data */
+
+//#define PL_HAS_QUADRATURE     (1 && PL_IS_FRDM)
+  /*!< Set to one if having quadrature sensor */
+//#define PL_HAS_MOTOR_TACHO    (1 && PL_HAS_QUADRATURE)
+  /*!< Set to one if we measure the speed */
+//#define PL_HAS_SHELL_TRACE    (1)
+  /*!< Set to one if we trace values to the shell */
+
+//#define PL_HAS_FREEMASTER     (0)
+  /*!< Set to one if we are using FreeMaster. Need to disable UART in Shell! */
+//#define PL_HAS_PID            (0 && PL_HAS_MOTOR)
+  /*!< Set to one if we we have motor PID closed loop control */
+//#define PL_HAS_WATCHDOG       (0)
+  /*!< Set to one if using watchdog timer */
+
+
+//#define PL_HAS_RTOS_TRACE     (1 && PL_HAS_RTOS && PL_IS_FRDM)
+  /*!< Set to one if using Percepio Trace */
 
 #if PL_IS_FRDM
   #define PL_NOF_LEDS       3

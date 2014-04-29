@@ -20,6 +20,45 @@
 #if PL_HAS_KEYS
   #include "Keys.h"
 #endif
+#if PL_HAS_TRIGGER
+  #include "Trigger.h"
+#endif
+#if PL_HAS_BUZZER
+  #include "Buzzer.h"
+#endif
+#if PL_HAS_DEBOUNCE
+  #include "Debounce.h"
+#endif
+#if PL_HAS_RTOS
+  #include "RTOS.h"
+#endif
+#if PL_HAS_SEMAPHORE
+  #include "Sem.h"
+#endif
+#if PL_HAS_SHELL
+  #include "Shell.h"
+#endif
+#if PL_HAS_SHELL_QUEUE
+  #include "ShellQueue.h"
+#endif
+#if PL_HAS_LINE_SENSOR
+  #include "Reflectance.h"
+#endif
+#if PL_HAS_MOTOR
+  #include "Motor.h"
+#endif
+#if PL_HAS_ACCEL
+  #include "Accel.h"
+#endif
+#if PL_HAS_RTOS_TRACE
+  #include "RTOSTRC1.h"
+#endif
+#if PL_HAS_MOTOR_TACHO
+  #include "Tacho.h"
+#endif
+#if PL_HAS_SHELL_TRACE
+  #include "ShellTrace.h"
+#endif
 
 #if PL_HAS_LED
 static void PL_LedInit(void) {
@@ -63,7 +102,6 @@ static void PL_LedDeinit(void) {
 }
 #endif /* PL_HAS_LED */
 
-
 void PL_Init(void) {
 #if PL_HAS_LED
   PL_LedInit();
@@ -77,19 +115,96 @@ void PL_Init(void) {
 #if PL_HAS_KEYS
   KEY_Init();
 #endif
+#if PL_HAS_TRIGGER
+  TRG_Init();
+#endif
+#if PL_HAS_BUZZER
+  BUZ_Init();
+#endif
+#if PL_HAS_DEBOUNCE
+  DBNC_Init();
+#endif
+#if PL_HAS_RTOS
+  RTOS_Init();
+#endif
+#if PL_HAS_SEMAPHORE
+  SEM_Init();
+#endif
+#if PL_HAS_SHELL
+  SHELL_Init();
+#endif
+#if PL_HAS_SHELL_QUEUE
+  SQUEUE_Init();
+#endif
+#if PL_HAS_LINE_SENSOR
+  REF_Init();
+#endif
+#if PL_HAS_MOTOR
+  MOT_Init();
+#endif
+#if PL_HAS_ACCEL
+  ACCEL_Init();
+#endif
+#if PL_HAS_RTOS_TRACE
+  if (RTOSTRC1_uiTraceStart()==0) {
+    for(;;){} /* error starting trace recorder. Not setup for enough queues/tasks/etc? */
+  }
+#endif
+#if PL_HAS_MOTOR_TACHO
+  TACHO_Init();
+#endif
+#if PL_HAS_SHELL_TRACE
+  TRACE_Init();
+#endif
 }
 
 void PL_Deinit(void) {
+#if PL_HAS_MOTOR_TACHO
+  TACHO_Deinit();
+#endif
+#if PL_HAS_SHELL_TRACE
+  TRACE_Deinit();
+#endif
+#if PL_HAS_ACCEL
+  ACCEL_Deinit();
+#endif
+#if PL_HAS_MOTOR
+  MOT_Deinit();
+#endif
+#if PL_HAS_LINE_SENSOR
+  REF_Deinit();
+#endif
+#if PL_HAS_SHELL_QUEUE
+  SQUEUE_Deinit();
+#endif
+#if PL_HAS_SHELL
+  SHELL_Deinit();
+#endif
+#if PL_HAS_SEMAPHORE
+  SEM_Deinit();
+#endif
+#if PL_HAS_RTOS
+  RTOS_Deinit();
+#endif
+#if PL_HAS_DEBOUNCE
+  DBNC_Deinit();
+#endif
+#if PL_HAS_BUZZER
+  BUZ_Deinit();
+#endif
+#if PL_HAS_TRIGGER
+  TRG_Deinit();
+#endif
+#if PL_HAS_KEYS
+  KEY_Init();
+#endif
+#if PL_HAS_TIMER
+  TMR_Deinit();
+#endif
 #if PL_HAS_EVENTS
   EVNT_Deinit();
 #endif
 #if PL_HAS_LED
   PL_LedDeinit();
 #endif
-#if PL_HAS_TIMER
-  TMR_Deinit();
-#endif
-#if PL_HAS_KEYS
-  KEY_Deinit();
-#endif  
 }

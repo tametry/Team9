@@ -26,6 +26,9 @@ void TMR_OnInterrupt(void) {
     cnt = 0; /* reset counter */
   }
 #endif
+#if PL_HAS_TRIGGER
+  TRG_IncTick();
+#endif  
 }
 
 /*! \brief Timer driver initialization */

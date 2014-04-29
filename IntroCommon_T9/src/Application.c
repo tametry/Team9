@@ -19,12 +19,27 @@
 #if PL_HAS_KEYS
   #include "Keys.h"
 #endif
+#if PL_HAS_BUZZER
+  #include "Buzzer.h"
+#endif
+#if PL_HAS_RTOS
+  #include "FRTOS1.h"
+  #include "RTOS.h"
+#endif
+#if PL_HAS_RTOS_TRACE
+  #include "RTOSTRC1.h"
+#endif
 
+/*
+BaseType_t APP_EnterTicklessIdle(void) {
+  return pdTRUE;
+}
+*/
 static void APP_EvntHandler(EVNT_Handle event) {
   switch(event) { 
     case EVNT_INIT:
       LED1_On();
-      WAIT1_Waitms(100);
+      WAIT1_Waitms(5000);
       LED1_Off();
       break;
 
@@ -56,14 +71,31 @@ static void APP_EvntHandler(EVNT_Handle event) {
     LED4_Neg();
     break;
 #endif
-    
+
     default:
       break;
   }
 }
 
-
-
+#if PL_HAS_RTOS
+static portTASK_FUNCTION(MainTask, pvParameters) {
+  uint16_t msCnt;
+  
+  (void)pvParameters; /* parameter not used */
+  for(;;) {
+    EVNT_HandleEvent(APP_EvntHandler);
+#if PL_HAS_KEYS && !PL_HAS_KBI
+    KEY_Scan(); /* poll keys */
+#endif
+    FRTOS1_vTaskDelay(20/portTICK_RATE_MS);
+    msCnt += 20;
+    if (msCnt>1000) {
+      LED2_Neg();
+      msCnt = 0;
+    }
+  }
+}
+#else
 static void APP_Loop(void) {
   for(;;) {
     EVNT_HandleEvent(APP_EvntHandler);
@@ -72,11 +104,33 @@ static void APP_Loop(void) {
 #endif
   } /* for */
 }
-
+#endif
 
 void APP_Run(void) {
+#if PL_HAS_RTOS_TRACE
+  if (!RTOSTRC1_uiTraceStart()) {
+    for(;;) {} /* failed! */
+  }
+#endif
   PL_Init();
   EVNT_SetEvent(EVNT_INIT);
+#if PL_HAS_RTOS
+  if (FRTOS1_xTaskCreate(
+       MainTask,  /* pointer to the task */
+       "Main", /* task name for kernel awareness debugging */
+       configMINIMAL_STACK_SIZE, /* task stack size */
+       (void*)NULL, /* optional task startup argument */
+       tskIDLE_PRIORITY,  /* initial priority */
+       (xTaskHandle*)NULL /* optional task handle to create */
+     ) != pdPASS) {
+   /*lint -e527 */
+   for(;;){} /* error! probably out of memory */
+   /*lint +e527 */
+ }
+  
+  FRTOS1_vTaskStartScheduler();
+#else
   APP_Loop();
+#endif
   PL_Deinit();
 }
