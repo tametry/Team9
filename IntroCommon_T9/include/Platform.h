@@ -43,7 +43,7 @@
   /*!< If we are using an RTOS */
 #define PL_HAS_SEMAPHORE      (1)
   /*!< If we are using test tasks for semaphores */
-//#define PL_HAS_SHELL          (1)
+#define PL_HAS_SHELL          (1)
   /*!< If we have a shell */
 //#define PL_HAS_BLUETOOTH      (1 && PL_IS_FRDM)
   /*!< If we are using an RTOS */

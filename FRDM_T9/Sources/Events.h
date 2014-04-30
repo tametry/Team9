@@ -59,6 +59,9 @@
 #include "ASerialLdd1.h"
 #include "FRTOS1.h"
 #include "RTOSTRC1.h"
+#include "BT1.h"
+#include "Serial1.h"
+#include "ASerialLdd2.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -247,6 +250,20 @@ void AS1_OnTxChar(void);
 ** ===================================================================
 */
 void AS1_OnFullRxBuf(void);
+
+/*
+** ===================================================================
+**     Event       :  AS1_OnFreeTxBuf (module Events)
+**
+**     Component   :  AS1 [AsynchroSerial]
+**     Description :
+**         This event is called after the last character in output
+**         buffer is transmitted.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void AS1_OnFreeTxBuf(void);
 
 /* END Events */
 

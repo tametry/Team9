@@ -126,8 +126,7 @@ void APP_Run(void) {
    /*lint -e527 */
    for(;;){} /* error! probably out of memory */
    /*lint +e527 */
- }
-  
+ }  
   FRTOS1_vTaskStartScheduler();
 #else
   APP_Loop();
